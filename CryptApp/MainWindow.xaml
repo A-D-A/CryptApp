@@ -16,8 +16,6 @@
             <StackPanel  Orientation="Vertical" >
                 <Expander Header="Симметричное шифрование по алгоритму ГОСТ" >
                     <StackPanel>
-                        <TextBlock><Run Text="Однажды в студеную зимнюю пору..."/></TextBlock>
-
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -30,8 +28,8 @@
 
                             <Label Content="Исходный текст"></Label>
                             <Label Grid.Column="1"  Content="Результат работы алгоритма"></Label>
-                            <TextBox x:Name="tbOutSymm" MinHeight="100"  Grid.Column="1" Grid.Row="1"  />
-                            <TextBox x:Name="tbInputSymm" Text="Здравствуй, Мир!" MinHeight="100" Grid.Row="1"/>
+                            <TextBox x:Name="tbOutSymm" TextWrapping="Wrap" MinHeight="100"  Grid.Column="1" Grid.Row="1"  />
+                            <TextBox x:Name="tbInputSymm" TextWrapping="Wrap" Text="Здравствуй, Мир!" MinHeight="100" Grid.Row="1"/>
                         </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -45,7 +43,7 @@
                 </Expander>
                 <Expander Header="Асимметричное шифрование по схеме Эль Гамаля">
                     <StackPanel>
-                        <TextBox >key</TextBox>
+
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -58,17 +56,18 @@
 
                             <Label Content="Исходный текст"></Label>
                             <Label Grid.Column="1"  Content="Результат работы алгоритма"></Label>
-                            <TextBox x:Name="tbOutAsymm" MinHeight="100"  Grid.Column="1" Grid.Row="1"  />
-                            <TextBox x:Name="tbInputAsymm" Text="Здравствуй, Мир!" MinHeight="100" Grid.Row="1"/>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Button x:Name="btnEncryptAsymm" Content="Зашифровать" Click="btnEncryptAsymm_Click" />
-                        <Button x:Name="btnDecryptAsymm" Content="Расшифровать" Grid.Column="1" Click="btnDecryptAsymm_Click"/>
-                    </Grid>
+                            <TextBox x:Name="tbOutAsymm" TextWrapping="Wrap" MinHeight="100"  Grid.Column="1" Grid.Row="1"  />
+                            <TextBox x:Name="tbInputAsymm" TextWrapping="Wrap" Text="Здравствуй, Мир!" MinHeight="100" Grid.Row="1"/>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="btnEncryptAsymm" Content="Зашифровать" Click="btnEncryptAsymm_Click" />
+                            <Button x:Name="btnDecryptAsymm" Content="Расшифровать" Grid.Column="1" Click="btnDecryptAsymm_Click"/>
+                        </Grid>
+                        <TextBox Visibility="Hidden">key</TextBox>
                     </StackPanel>
                 </Expander>
                 <Expander Header="Вычисление хеш-образа по алгоритму MD5">
@@ -86,8 +85,8 @@
 
                             <Label Content="Исходный текст"></Label>
                             <Label Grid.Column="1"  Content="Результат работы алгоритма"></Label>
-                            <TextBox x:Name="tbOutHash" MinHeight="100"  Grid.Column="1" Grid.Row="1"  />
-                            <TextBox x:Name="tbInputHash" Text="Здравствуй, Мир!" MinHeight="100" Grid.Row="1"/>
+                            <TextBox x:Name="tbOutHash" TextWrapping="Wrap" MinHeight="100"  Grid.Column="1" Grid.Row="1"  />
+                            <TextBox x:Name="tbInputHash" TextWrapping="Wrap" Text="Здравствуй, Мир!" MinHeight="100" Grid.Row="1"/>
                         </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -103,30 +102,31 @@
                 </Expander>
                 <Expander Header="Цифровая подпись по алгоритму RSA">
                     <StackPanel>
-                        <TextBox x:Name="tbKeySign" >key</TextBox>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="0.15*"></RowDefinition>
-                                    <RowDefinition Height="0.85*"></RowDefinition>
-                                </Grid.RowDefinitions>
 
-                                <Label Content="Исходный текст"></Label>
-                                <Label Grid.Column="1"  Content="Результат работы алгоритма"></Label>
-                                <TextBox x:Name="tbOutSign" TextWrapping="Wrap" MinHeight="100"  Grid.Column="1" Grid.Row="1"  />
-                                <TextBox x:Name="tbInputSign" Text="Здравствуй, Мир!" MinHeight="100" Grid.Row="1"/>
-                            </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.15*"></RowDefinition>
+                                <RowDefinition Height="0.85*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Label Content="Исходный текст"></Label>
+                            <Label Grid.Column="1"  Content="Результат работы алгоритма"></Label>
+                            <TextBox x:Name="tbOutSign" TextWrapping="Wrap" MinHeight="100"  Grid.Column="1" Grid.Row="1"  />
+                            <TextBox x:Name="tbInputSign" TextWrapping="Wrap" Text="Здравствуй, Мир!" MinHeight="100" Grid.Row="1"/>
+                        </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
                                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Button x:Name="btnSign" Content="Подписать" Click="btnSign_Click" />
-                            <Button x:Name="btnVerify" Content="Проверить" Grid.Column="1" Click="btnDecryptAsymm_Click"/>
+                            <Button x:Name="btnVerify" Content="Проверить" Grid.Column="1" Click="btnVerify_Click"/>
                         </Grid>
+                        <TextBox x:Name="tbKeySign" Visibility="Hidden" >key</TextBox>
                     </StackPanel>
                 </Expander>
             </StackPanel>

@@ -36,11 +36,7 @@ namespace CryptApp
             byte[] buf = new byte[outputData.Length];
             outputData.Position = 0;
             outputData.Read(buf, 0, buf.Length);
-
-            //tbOutSymm.Text = Encoding.Default.GetString(buf);
-
-
-            //byte[] byteArray = Encoding.Default.GetBytes(encryptedText);
+      
             var hexString = BitConverter.ToString(buf);
             hexString = hexString.Replace("-", " ");
             tbOutSymm.Text = hexString;
@@ -62,13 +58,19 @@ namespace CryptApp
         }
         public static byte[] FromHex(string hex)
         {
-            hex = hex.Replace(" ", "");          
-            byte[] raw = new byte[hex.Length / 2];
-            for (int i = 0; i < raw.Length; i++)
+            byte[] raw = null;
+            try
             {
-                raw[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
+                hex = hex.Replace(" ", "");
+                raw = new byte[hex.Length / 2];
+                for (int i = 0; i < raw.Length; i++)
+                {
+                    raw[i] = Convert.ToByte(hex.Substring(i * 2, 2), 16);
+                }
+                return raw; 
             }
-            return raw;
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Некорректные входные данные"); }
+            return null;
         }
         private void btnEncryptAsymm_Click(object sender, RoutedEventArgs e)
         {
@@ -136,16 +138,16 @@ namespace CryptApp
         {
             MemoryStream inputData = new MemoryStream(Encoding.Default.GetBytes(tbInputSign.Text));
             MemoryStream outputData = new MemoryStream();
+            byte[] buf;
 
             SigntureRSA rsa = new SigntureRSA();
             rsa.RSA_Params();
-            Stream key = rsa.GetPublicKey();
-
-            byte[] buf = new byte[key.Length];
-            key.Position = 0;
-            key.Read(buf, 0, buf.Length);
-
-            tbKeySign.Text = (BitConverter.ToString(buf).Replace('-',' ')).Replace("20", "");
+            
+            //Stream key = rsa.GetPublicKey();
+            //byte[] buf = new byte[key.Length];
+            //key.Position = 0;
+            //key.Read(buf, 0, buf.Length);
+            //tbKeySign.Text = (BitConverter.ToString(buf).Replace('-',' ')).Replace("20", "");
 
             rsa.SetHashFunction(new MD5());
             rsa.Sign(inputData, outputData);
@@ -154,8 +156,27 @@ namespace CryptApp
             outputData.Position = 0;
             outputData.Read(buf, 0, buf.Length);
 
-            tbOutSign.Text = tbInputSign.Text;
-            tbOutSign.Text += Encoding.Default.GetString(buf);
+            var hexString = BitConverter.ToString(buf);
+            hexString = hexString.Replace("-", " ");
+            tbOutSign.Text += hexString;
+        }
+
+        private void btnVerify_Click(object sender, RoutedEventArgs e)
+        {
+            byte[] buf = FromHex(tbOutSign.Text);
+            if (buf == null)
+                return;
+            MemoryStream inputData = new MemoryStream(buf);
+            MemoryStream outputData = new MemoryStream();         
+
+            SigntureRSA rsa = new SigntureRSA();
+            rsa.RSA_Params();
+            rsa.SetHashFunction(new MD5());
+
+            if (rsa.Verify(inputData) == true)
+                tbOutSign.Text += "\nПодпись верна";
+            else
+                tbOutSign.Text += "\nПодпись некорректна";
         }
     }
 }
