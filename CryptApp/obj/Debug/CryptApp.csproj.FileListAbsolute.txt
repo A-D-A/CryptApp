@@ -1,0 +1,15 @@
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\bin\Debug\CryptApp.exe
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\bin\Debug\CryptApp.pdb
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\CryptApp.csprojResolveAssemblyReference.cache
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\MainWindow.g.cs
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\App.g.cs
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\CryptApp_MarkupCompile.cache
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\CryptApp_MarkupCompile.lref
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\MainWindow.baml
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\CryptApp.g.resources
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\CryptApp.Properties.Resources.resources
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\CryptApp.csproj.GenerateResource.Cache
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\CryptApp.exe
+c:\users\diana\documents\visual studio 2015\Projects\CryptApp\CryptApp\obj\Debug\CryptApp.pdb
+C:\Users\Diana\Documents\Visual Studio 2015\Projects\CryptApp\CryptApp\bin\Debug\CryptoLib.dll
+C:\Users\Diana\Documents\Visual Studio 2015\Projects\CryptApp\CryptApp\bin\Debug\CryptoLib.pdb
